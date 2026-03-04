@@ -131,6 +131,7 @@ install_via_clone_and_symlink() {
       info "Repo already present at $repo_dir"
       info "Updating repo (git fetch)..."
       git -C "$repo_dir" fetch --prune --tags >/dev/null
+      git -C "$repo_dir" pull --ff-only >/dev/null
     else
       info "Cloning repo into $repo_dir"
       git clone "$REPO" "$repo_dir" >/dev/null
