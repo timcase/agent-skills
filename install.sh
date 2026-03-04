@@ -3,6 +3,7 @@ set -euo pipefail
 
 # install.sh
 # Installs all skills in this repository by invoking each skill's installer.
+# Each skill installer deploys to both ~/.claude/skills and ~/.codex/skills.
 #
 # Usage:
 #   ./install.sh
@@ -20,7 +21,7 @@ DEST="$DEST_DEFAULT"
 METHOD="$METHOD_DEFAULT"
 FORCE="0"
 
-SKILLS=("gh-cli" "doctl" "s3cmd")
+SKILLS=("gh-cli" "doctl" "s3cmd" "beets")
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 die() { echo "Error: $*" >&2; exit 1; }
@@ -30,11 +31,12 @@ usage() {
   cat >&2 <<EOF
 Usage: $0 [options]
 
-Installs all skills: gh-cli, doctl, s3cmd
+Installs all skills: gh-cli, doctl, s3cmd, beets
 
 Options:
   --repo <url>          Repo URL passed to each skill installer (default: $REPO_DEFAULT)
-  --dest <dir>          Destination base dir (default: $DEST_DEFAULT)
+  --dest <dir>          Primary destination base dir (default: $DEST_DEFAULT)
+                        Also installs to ~/.codex/skills
   --method <clone|archive>
                         Install method (default: $METHOD_DEFAULT)
   --force               Replace existing destinations

@@ -2,9 +2,9 @@
 set -euo pipefail
 
 # install.sh
-# Installs the "gh-cli" skill from timcase/agent-skills into:
-# - ~/.claude/skills/gh-cli (default destination family)
-# - ~/.codex/skills/gh-cli  (always also installed)
+# Installs the "beets" skill from timcase/agent-skills into:
+# - ~/.claude/skills/beets (default destination family)
+# - ~/.codex/skills/beets  (always also installed)
 #
 # Behavior:
 # - Default (recommended): clone repo once into ~/.claude/skills/agent-skills and symlink gh-cli
@@ -16,13 +16,13 @@ set -euo pipefail
 #   ./install.sh --force
 #   ./install.sh --method=archive
 #   ./install.sh --dest ~/.claude/skills
-#   ./install.sh --repo https://github.com/timcase/agent-skills.git --path gh-cli
+#   ./install.sh --repo https://github.com/timcase/agent-skills.git --path beets
 #
 # After install (clone method):
 #   cd ~/.claude/skills/agent-skills && git pull
 
 REPO_DEFAULT="https://github.com/timcase/agent-skills.git"
-PATH_DEFAULT="gh-cli"
+PATH_DEFAULT="beets"
 DEST_DEFAULT="$HOME/.claude/skills"
 CODEX_DEST_DEFAULT="$HOME/.codex/skills"
 METHOD_DEFAULT="clone" # clone | archive
@@ -105,7 +105,7 @@ for base in "${TARGET_BASES[@]}"; do
 done
 
 # Normalize destination folder name based on SUBPATH leaf
-# e.g. "skills/gh-cli" for "gh-cli", or "skills/foo" for "tools/foo"
+# e.g. "skills/beets" for "beets", or "skills/foo" for "tools/foo"
 LEAF="$(basename "$SUBPATH")"
 
 remove_existing_dest_if_needed() {
