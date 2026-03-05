@@ -8,8 +8,7 @@ DEST="$DEST_DEFAULT"
 FORCE="0"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SKILL_NAME="s3cmd"
-
+SKILL_NAME="newrelic"
 
 die() { echo "Error: $*" >&2; exit 1; }
 info() { echo "==> $*" >&2; }
