@@ -16,7 +16,7 @@ DEST_DEFAULT="$HOME/.claude/skills"
 DEST="$DEST_DEFAULT"
 FORCE="0"
 
-SKILLS=("gh-cli" "doctl" "s3cmd" "beets" "sentry" "cinc-client" "knife" "knup" "newrelic")
+SKILLS=("gh-cli" "doctl" "s3cmd" "beets" "sentry" "cinc-client" "knife" "knup" "newrelic" "proton-pass" "postmark")
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 die() { echo "Error: $*" >&2; exit 1; }
