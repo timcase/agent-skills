@@ -1,13 +1,6 @@
 ---
 name: doctl
-description: >
-  DigitalOcean CLI (doctl) skill for managing cloud infrastructure via
-  the command line. Use when the user asks to list, create, update,
-  delete, or inspect DigitalOcean resources including: Droplets,
-  container registries, Spaces object storage, firewalls, load
-  balancers, VPCs, reserved IPs, domains, or DNS records. Triggers on
-  phrases like "show my droplets", "create a registry", "add a DNS
-  record", "list my Spaces keys", "open firewall port", etc.
+description: "DigitalOcean CLI (doctl) for managing cloud infrastructure. Use for: Droplets, container registries, Spaces storage, firewalls, load balancers, VPCs, reserved IPs, domains, or DNS. Triggers on 'doctl' or any DigitalOcean resource request."
 ---
 
 # doctl

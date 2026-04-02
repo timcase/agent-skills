@@ -1,13 +1,6 @@
 ---
 name: newrelic
-description: >
-  Interact with the New Relic observability platform using the newrelic CLI. Use when the user
-  asks to: query metrics or events with NRQL, search for entities (applications, hosts, services),
-  view or create APM deployment markers, manage Synthetics monitors, send custom events, create
-  change tracking events, execute NerdGraph GraphQL queries, manage workloads, list APM
-  applications, or inspect New Relic account configuration. Triggers on: "query New Relic",
-  "run NRQL", "search entities", "APM deployment marker", "synthetics monitor", "send custom event",
-  "NerdGraph query", "New Relic workload", "check New Relic", "list APM apps".
+description: "Interact with New Relic using the newrelic CLI. Use for: NRQL queries, APM apps/deployments, NerdGraph GraphQL, Synthetics monitors, custom events, workloads, or entity search. Triggers on 'query New Relic', 'NRQL', 'APM', or 'New Relic'."
 ---
 
 # New Relic CLI

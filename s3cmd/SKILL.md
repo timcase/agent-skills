@@ -1,13 +1,6 @@
 ---
 name: s3cmd
-description: >
-  Manage S3-compatible object storage using the s3cmd CLI. Use when the user
-  asks to: list buckets or bucket contents, upload or download files, sync
-  directories to/from S3, inspect or change ACLs/permissions, or list all
-  objects in a bucket. Supports multiple providers including AWS S3 and
-  DigitalOcean Spaces via named config profiles. Triggers on requests like
-  "upload this to my Spaces bucket", "sync my folder to S3", "what's the ACL
-  for bucket X", "list everything in bucket Y", or "download from S3".
+description: "Manage S3-compatible object storage using s3cmd. Use for: listing buckets/contents, uploading/downloading files, syncing directories, managing ACLs, or listing objects. Supports AWS S3 and DigitalOcean Spaces via config profiles."
 ---
 
 # s3cmd

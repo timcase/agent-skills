@@ -1,6 +1,6 @@
 ---
 name: sentry
-description: Manage and query Sentry error reports using sentry-cli. Use when the user asks to view, list, or check errors/issues in Sentry, pull down latest issues for a project, resolve or mute issues, or check what's broken in an app. Triggers on requests like "pull down the latest issues", "show me the Sentry errors", "what errors are in Sentry", "resolve this Sentry issue", or "check the errors for this project".
+description: "Manage and query Sentry error reports using sentry-cli. Use for: listing/viewing issues, pulling latest errors for a project, resolving or muting issues. Triggers on 'Sentry errors', 'pull Sentry issues', 'what is broken', or 'resolve issue'."
 ---
 
 # Sentry

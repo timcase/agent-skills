@@ -1,13 +1,6 @@
 ---
 name: knife
-description: >
-  Manage Chef/Cinc infrastructure from the workstation using the knife CLI. knife is the admin
-  interface to the Cinc Server at https://spinoza.ekamai.net/organizations/ekamai. Use when the
-  user asks to: list/show/edit nodes, roles, cookbooks, or data bags; modify a node's run list;
-  search nodes by attribute or role; upload cookbooks; manage environments; bootstrap new nodes;
-  run commands on nodes via knife ssh; manage encrypted vault items; or inspect/change any
-  server-side Chef/Cinc objects. Triggers on: "knife", "list nodes", "edit node", "add role to node",
-  "upload cookbook", "show data bag", "search nodes", "bootstrap node", "knife vault", "run list".
+description: "Manage Chef/Cinc infrastructure using the knife CLI. Use for: nodes, roles, cookbooks, data bags, run lists, environments, bootstrapping, knife ssh, or vault items. Triggers on 'knife', 'Chef server', 'bootstrap node', or 'knife vault'."
 ---
 
 # knife Skill

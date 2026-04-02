@@ -1,12 +1,6 @@
 ---
 name: knup
-description: >
-  knup is a custom deployment script for the Cinc/Chef repo at ~/Sites/cinc. It automatically
-  detects git-modified files, bumps cookbook versions, uploads changed artifacts to the Cinc
-  Server via knife, then commits and pushes the repo. Use whenever changes to cookbooks, nodes,
-  roles, or data bags need to be deployed to the Chef server. Always run knup after editing any
-  file in ~/Sites/cinc to publish changes. Triggers on: "run knup", "deploy cinc changes",
-  "push cookbook", "publish changes", "upload and commit", "sync cinc", "update chef server".
+description: "knup is a deployment script for ~/Sites/cinc that bumps cookbook versions, uploads artifacts to the Cinc Server via knife, then commits and pushes. Use after editing cookbooks, nodes, roles, or data bags. Triggers on 'run knup' or 'deploy cinc'."
 ---
 
 # knup

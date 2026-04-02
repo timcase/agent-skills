@@ -1,6 +1,6 @@
 ---
 name: postmark
-description: "Send emails and manage email templates and servers using the Postmark CLI. Use when the user asks to: send a transactional email, send an email using a Postmark template, list Postmark servers, pull/push/preview email templates, or manage template workflows. Triggers on requests like 'send an email via Postmark', 'use a Postmark template', 'list my Postmark servers', 'pull down templates', 'push templates to Postmark', or 'preview email templates'."
+description: "Send emails and manage templates using the Postmark CLI. Use for: sending transactional emails, using Postmark templates, listing servers, or pulling/pushing/previewing templates. Triggers on 'Postmark', 'send email via Postmark', or 'template'."
 ---
 
 # Postmark CLI

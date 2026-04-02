@@ -1,6 +1,6 @@
 ---
 name: proton-pass
-description: "Manage Proton Pass password manager vaults, items, and secrets using the pass-cli command-line tool. Use when the user asks to: list vaults or items, view/retrieve passwords or secrets, create or update login/note/credit card/SSH key items, delete or move items, generate passwords or TOTP codes, inject secrets into config files, run commands with secrets as environment variables, manage vault members/sharing, or use the Proton Pass SSH agent. Triggers on requests like 'show my Proton Pass vaults', 'get the password for X', 'create a login in Pass', 'inject secrets', 'run with Pass env vars', 'generate a TOTP', or 'add an SSH key to Pass'."
+description: "Manage Proton Pass vaults and secrets using pass-cli. Use for: listing vaults/items, retrieving passwords, creating/updating items, generating TOTP codes, injecting secrets, running with Pass env vars, or SSH agent. Triggers on 'Proton Pass'."
 ---
 
 # Proton Pass CLI

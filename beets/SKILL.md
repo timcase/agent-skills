@@ -1,6 +1,6 @@
 ---
 name: beets
-description: Manage music libraries with the beets CLI (beet command). Use when the user asks to import music, fix or edit music metadata/tags, query or search their music library, organize/move music files, fetch album art, analyze ReplayGain, update library entries, remove tracks, or configure beets. Triggers on requests like "import my music", "fix the tags on this album", "find all tracks by artist X", "move my music to a new folder", "fetch album art", "show my library stats", or "edit beets config".
+description: "Manage music libraries with beets CLI. Use for: importing music, fixing metadata/tags, querying the library, organizing files, fetching album art, analyzing ReplayGain, or configuring beets. Triggers on 'beet', 'import music', or 'fix tags'."
 ---
 
 # Beets CLI Skill

@@ -1,11 +1,6 @@
 ---
 name: cinc-client
-description: >
-  Manage infrastructure configuration using cinc-client (FOSS Chef Infra Client drop-in replacement).
-  Use when the user asks to: apply configuration to nodes, run Chef/Cinc recipes or roles, do dry-run
-  convergence, develop or test cookbooks, manage nodes/roles/data bags, debug convergence failures,
-  or work with the Cinc/Chef server. Triggers on: "run cinc", "apply config", "converge node",
-  "why-run", "test cookbook", "kitchen test", "chef recipe", "cinc recipe", "add role", "update node".
+description: "Manage infrastructure using cinc-client (FOSS Chef Infra Client). Use for: applying config, running recipes/roles, dry-run convergence, testing cookbooks, or debugging failures. Triggers on 'run cinc', 'converge', 'why-run', or 'cinc recipe'."
 ---
 
 # cinc-client Skill
