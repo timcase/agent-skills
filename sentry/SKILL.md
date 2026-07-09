@@ -10,7 +10,7 @@ Sentry error monitoring via `sentry-cli`. The tool is authenticated and ready to
 ## Configuration
 
 - **Org slug**: `wingtask`
-- **Project naming**: The Sentry project slug matches the current working directory name (e.g., working in `bravo/` → project is `bravo`)
+- **Project naming**: The Sentry project slug may not match the working directory name. Check CLAUDE.md for a project-specific slug, or run `sentry-cli projects list --org wingtask` to find it.
 
 ## Common Commands
 
@@ -51,6 +51,6 @@ sentry-cli projects list --org wingtask
 
 ## Workflow
 
-1. Determine the project: use `basename $PWD` or ask the user if ambiguous
+1. Determine the project slug: check CLAUDE.md first, then fall back to `sentry-cli projects list --org wingtask`
 2. Run the appropriate command
 3. Present results clearly — summarize patterns if there are many issues

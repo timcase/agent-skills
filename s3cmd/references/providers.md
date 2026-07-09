@@ -60,9 +60,35 @@ Key values:
 
 ---
 
+## Cloudflare R2
+
+Configure interactively:
+```bash
+s3cmd --configure -c ~/.s3cfg-r2
+```
+
+Key values:
+- Access Key / Secret Key: from Cloudflare dashboard → R2 → **Manage API
+  Tokens** (this is a separate credential from `CLOUDFLARE_API_TOKEN` used
+  by the `cloudflare` skill — that token does not work here)
+- S3 Endpoint: `{account_id}.r2.cloudflarestorage.com`
+- DNS-style bucket+hostname: leave blank / disabled — R2 does not support
+  virtual-hosted-style addressing by default; use path-style
+- Default Region: `auto`
+- Encryption password: leave blank
+
+> Find `{account_id}` via `GET /accounts` in the `cloudflare` skill's
+> `references/r2.md`, or from the Cloudflare dashboard URL.
+
+For bucket management (create/delete/lifecycle/CORS/custom domains), use
+the `cloudflare` skill instead — s3cmd here is only for object I/O.
+
+---
+
 ## Verifying a Config
 
 ```bash
-s3cmd -c ~/.s3cfg-do ls          # should list your Spaces
+s3cmd -c ~/.s3cfg-do  ls         # should list your Spaces
 s3cmd -c ~/.s3cfg-aws ls         # should list your S3 buckets
+s3cmd -c ~/.s3cfg-r2  ls         # should list your R2 buckets
 ```
