@@ -1,107 +1,96 @@
 # Agent Tools Skills
 
-A collection of installable agent skills for common command-line tools.
-
-This repository currently includes:
-
-- `gh-cli` (GitHub CLI)
-- `doctl` (DigitalOcean CLI)
-- `s3cmd` (S3-compatible object storage CLI)
+A collection of installable agent skills for common command-line tools and services.
 
 Each skill includes:
 
 - `SKILL.md` with usage guidance for the agent
-- an `install.sh` script to install that skill into your local skills directory
+- an `install.sh` script that symlinks the skill into your local skills directories
 
 ## Skills
 
-- `gh-cli`: [gh-cli/SKILL.md](gh-cli/SKILL.md)
-- `doctl`: [doctl/SKILL.md](doctl/SKILL.md)
-- `s3cmd`: [s3cmd/SKILL.md](s3cmd/SKILL.md)
+| Skill | Description |
+| --- | --- |
+| [`1password`](1password/SKILL.md) | Manage 1Password vaults/secrets with the `op` CLI: read secrets, secret references (`op://`), items, TOTP, documents. |
+| [`aws-cli`](aws-cli/SKILL.md) | AWS CLI (`aws`) for querying and managing AWS resources, including S3 operations. |
+| [`azuracast`](azuracast/SKILL.md) | Manage an AzuraCast web radio station via its REST API. |
+| [`beets`](beets/SKILL.md) | Manage music libraries with the `beets` CLI: import, fix tags, query, organize, album art, ReplayGain. |
+| [`cinc-client`](cinc-client/SKILL.md) | Manage infrastructure using `cinc-client` (FOSS Chef Infra Client). |
+| [`cloudflare`](cloudflare/SKILL.md) | Manage Cloudflare DNS records and R2 object storage via API. |
+| [`doctl`](doctl/SKILL.md) | DigitalOcean CLI (`doctl`): Droplets, registries, Spaces, firewalls, load balancers, VPCs, domains. |
+| [`gh-cli`](gh-cli/SKILL.md) | GitHub CLI (`gh`): repos, issues, pull requests, Actions, projects, releases, gists, and more. |
+| [`hcloud`](hcloud/SKILL.md) | Manage Hetzner Cloud resources with the `hcloud` CLI. |
+| [`knife`](knife/SKILL.md) | Manage Chef/Cinc infrastructure with the `knife` CLI: nodes, roles, cookbooks, data bags, vault. |
+| [`knup`](knup/SKILL.md) | Deployment script for `~/Sites/cinc` that bumps cookbook versions and uploads artifacts via `knife`. |
+| [`newrelic`](newrelic/SKILL.md) | Interact with New Relic via the `newrelic` CLI: NRQL, APM, NerdGraph, Synthetics. |
+| [`postmark`](postmark/SKILL.md) | Send emails and manage templates with the Postmark CLI. |
+| [`proton-pass`](proton-pass/SKILL.md) | Manage Proton Pass vaults and secrets with `pass-cli`. |
+| [`s3cmd`](s3cmd/SKILL.md) | Manage S3-compatible object storage (AWS S3, DigitalOcean Spaces) with `s3cmd`. |
+| [`sentry`](sentry/SKILL.md) | Manage and query Sentry error reports with `sentry-cli`. |
+| [`skill-creator`](skill-creator/SKILL.md) | Guide for creating and updating effective agent skills. |
 
-## Install a Skill
+## Install
 
-Run the installer for the skill you want (via `curl`):
+The installers symlink the local skill directory into your skills directories, so
+start by cloning this repository:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/timcase/agent-skills/main/gh-cli/install.sh | bash
-curl -fsSL https://raw.githubusercontent.com/timcase/agent-skills/main/doctl/install.sh | bash
-curl -fsSL https://raw.githubusercontent.com/timcase/agent-skills/main/s3cmd/install.sh | bash
+git clone https://github.com/timcase/agent-skills.git
+cd agent-skills
 ```
 
-By default, each installer:
+### Install a single skill
 
-1. Clones `https://github.com/timcase/agent-skills.git` into `~/.claude/skills/agent-skills` (if needed)
-2. Creates a symlink for the selected skill in `~/.claude/skills/<skill-name>`
-
-## Install All Skills
-
-Use the root installer to install `gh-cli`, `doctl`, and `s3cmd` together:
+Run the installer inside the skill you want:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/timcase/agent-skills/main/install.sh | bash
+./gh-cli/install.sh
+./doctl/install.sh
+./s3cmd/install.sh
 ```
 
-You can also pass options through bash:
+Each installer creates a symlink for that skill in **both**:
+
+- `~/.claude/skills/<skill-name>` (Claude Code)
+- `~/.codex/skills/<skill-name>` (Codex)
+
+### Install all skills
+
+Use the root installer to install the bundled set at once:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/timcase/agent-skills/main/install.sh | bash -s -- --force
-curl -fsSL https://raw.githubusercontent.com/timcase/agent-skills/main/install.sh | bash -s -- --method=archive
-curl -fsSL https://raw.githubusercontent.com/timcase/agent-skills/main/install.sh | bash -s -- --dest ~/.claude/skills
+./bin/install.sh
 ```
 
 ## Installer Options
 
-All three installer scripts support the same options:
+Both the root and per-skill installers accept the same options:
 
 ```text
---repo <url>            Repo URL
---path <subdir>         Subdirectory in repo to install
---dest <dir>            Destination base directory (default: ~/.claude/skills)
---method <clone|archive>
---force                 Replace existing destination
--h, --help              Show help
+--dest <dir>    Primary destination base dir (default: ~/.claude/skills).
+                The skill is also always installed to ~/.codex/skills.
+--force         Replace an existing destination.
+-h, --help      Show help.
 ```
 
-## Examples
-
-Install with defaults:
+Examples:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/timcase/agent-skills/main/doctl/install.sh | bash
-```
+# Replace an existing installation
+./s3cmd/install.sh --force
 
-Replace an existing installation:
+# Install to a custom primary destination
+./gh-cli/install.sh --dest ~/.claude/skills
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/timcase/agent-skills/main/s3cmd/install.sh | bash -s -- --force
-```
-
-Install without keeping a local clone:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/timcase/agent-skills/main/gh-cli/install.sh | bash -s -- --method=archive
-```
-
-Install to a custom destination:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/timcase/agent-skills/main/gh-cli/install.sh | bash -s -- --dest ~/.claude/skills
-```
-
-Install from a different repo or subpath:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/timcase/agent-skills/main/gh-cli/install.sh | bash -s -- --repo https://github.com/timcase/agent-skills.git --path gh-cli
+# Install every bundled skill, replacing existing links
+./bin/install.sh --force
 ```
 
 ## Updating Installed Skills
 
-If installed with the default `clone` method:
+Because skills are symlinked from your local clone, just pull the latest changes:
 
 ```bash
-cd ~/.claude/skills/agent-skills
+cd agent-skills
 git pull
 ```
-
-If installed with `--method=archive`, re-run the installer with `--force`.

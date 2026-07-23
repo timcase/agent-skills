@@ -16,8 +16,9 @@ DEST_DEFAULT="$HOME/.claude/skills"
 DEST="$DEST_DEFAULT"
 FORCE="0"
 
-SKILLS=("gh-cli" "doctl" "s3cmd" "beets" "sentry" "cinc-client" "knife" "knup" "newrelic" "proton-pass" "postmark")
+SKILLS=("1password" "aws-cli" "azuracast" "beets" "cinc-client" "cloudflare" "doctl" "gh-cli" "hcloud" "knife" "knup" "newrelic" "postmark" "proton-pass" "s3cmd" "sentry" "skill-creator")
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 die() { echo "Error: $*" >&2; exit 1; }
 info() { echo "==> $*" >&2; }
@@ -56,7 +57,7 @@ if [[ "$FORCE" == "1" ]]; then
 fi
 
 for skill in "${SKILLS[@]}"; do
-  installer="$SCRIPT_DIR/$skill/install.sh"
+  installer="$REPO_ROOT/$skill/install.sh"
   [[ -f "$installer" ]] || die "Missing installer: $installer"
   info "Installing skill: $skill"
   "$installer" "${COMMON_ARGS[@]}"
