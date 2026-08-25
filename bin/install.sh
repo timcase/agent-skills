@@ -16,7 +16,7 @@ DEST_DEFAULT="$HOME/.claude/skills"
 DEST="$DEST_DEFAULT"
 FORCE="0"
 
-SKILLS=("1password" "aws-cli" "azuracast" "beets" "cinc-client" "cloudflare" "doctl" "gh-cli" "hcloud" "knife" "knup" "newrelic" "postmark" "proton-pass" "s3cmd" "sentry" "skill-creator")
+SKILLS=("1password" "aws-cli" "azuracast" "beets" "cinc-client" "cloudflare" "doctl" "gh-cli" "hcloud" "knife" "newrelic" "postmark" "proton-pass" "s3cmd" "sentry" "skill-creator" "spotify")
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 

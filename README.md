@@ -28,6 +28,7 @@ Each skill includes:
 | [`s3cmd`](s3cmd/SKILL.md) | Manage S3-compatible object storage (AWS S3, DigitalOcean Spaces) with `s3cmd`. |
 | [`sentry`](sentry/SKILL.md) | Manage and query Sentry error reports with `sentry-cli`. |
 | [`skill-creator`](skill-creator/SKILL.md) | Guide for creating and updating effective agent skills. |
+| [`spotify`](spotify/SKILL.md) | Work with the Spotify Web API: search, playlists, library, playback control. |
 
 ## Install
 
