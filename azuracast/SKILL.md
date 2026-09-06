@@ -42,7 +42,8 @@ Pipe to `| python3 -m json.tool` or `| jq` for readable output.
 
 ## Station ID
 
-The default station ID is `1`. Confirm with:
+The current station ID is `4` ("Hard Bop 24"). The `references/*` examples use `1` as a
+placeholder — substitute `4`. Confirm the current ID with:
 
 ```bash
 curl -s -H "X-API-Key: $LYSN_API_KEY" "$BASE/admin/stations" | python3 -m json.tool
