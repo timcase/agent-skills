@@ -22,6 +22,7 @@ Each skill includes:
 | [`hcloud`](hcloud/SKILL.md) | Manage Hetzner Cloud resources with the `hcloud` CLI. |
 | [`knife`](knife/SKILL.md) | Manage Chef/Cinc infrastructure with the `knife` CLI: nodes, roles, cookbooks, data bags, vault. |
 | [`knup`](knup/SKILL.md) | Deployment script for `~/Sites/cinc` that bumps cookbook versions and uploads artifacts via `knife`. |
+| [`musicbrainz`](musicbrainz/SKILL.md) | Query the MusicBrainz API: search, lookups, discographies, relationships. |
 | [`newrelic`](newrelic/SKILL.md) | Interact with New Relic via the `newrelic` CLI: NRQL, APM, NerdGraph, Synthetics. |
 | [`postmark`](postmark/SKILL.md) | Send emails and manage templates with the Postmark CLI. |
 | [`proton-pass`](proton-pass/SKILL.md) | Manage Proton Pass vaults and secrets with `pass-cli`. |
