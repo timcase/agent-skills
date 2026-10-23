@@ -64,6 +64,42 @@ task add Deploy feature depends:42,43 due:friday
 
 For complex planning workflows, break down the plan into individual tasks and add each with appropriate attributes.
 
+### Creating Tasks from Scripts
+
+Taskwarrior reads each command-line argument separately: `+tag`,
+`key:value` and words that start with neither are told apart one
+argument at a time, and an argument containing spaces is description
+text. So the arguments must reach `task` already separated.
+
+Never build modifiers into one string and expand it unquoted
+(`m="+code priority:H"; task add "Write tests" $m`). Whether the shell
+splits it is shell-specific: bash and POSIX sh split it (and also expand
+any glob characters in it), while zsh passes it as one argument, and
+then the tag and priority silently become part of the description.
+Instead:
+
+- **Prefer `task import`** for anything scripted. Fields are explicit
+  JSON, no shell splits or parses them, and a uuid you generate
+  identifies the task afterwards:
+
+  ```bash
+  u=$(python3 -c 'import uuid; print(uuid.uuid4())')
+  printf '[{"uuid":"%s","description":"Write tests","project":"Work",
+    "tags":["code"],"priority":"H","status":"pending"}]' "$u" \
+    | task import -
+  ```
+
+- Otherwise pass modifiers as **separate literal words**, or as a list
+  the shell expands one element per argument: `"${mods[@]}"` in bash
+  and zsh, `"$@"` after `set -- +code priority:H` in POSIX sh.
+- **Address tasks by uuid in multi-step scripts.** IDs renumber as soon
+  as a task completes, so a later step can hit the wrong task.
+- For unattended `done`/`modify`, pass `rc.confirmation=off
+  rc.dependency.confirmation=off` and redirect stdin from `/dev/null`,
+  or a confirmation prompt blocks the run.
+- **Verify every write** with `task <uuid> export`: the description
+  must not contain `+tag` or `key:value` text.
+
 ### Modifying Tasks
 
 ```bash
