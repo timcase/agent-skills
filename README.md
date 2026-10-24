@@ -30,6 +30,7 @@ Each skill includes:
 | [`sentry`](sentry/SKILL.md) | Manage and query Sentry error reports with `sentry-cli`. |
 | [`skill-creator`](skill-creator/SKILL.md) | Guide for creating and updating effective agent skills. |
 | [`spotify`](spotify/SKILL.md) | Work with the Spotify Web API: search, playlists, library, playback control. |
+| [`wingtask`](wingtask/SKILL.md) | Work with the WingTask REST API: tasks, lists, contexts, UDAs, search, undo. |
 
 ## Install
 
