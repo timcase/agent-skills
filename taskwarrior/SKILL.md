@@ -80,13 +80,16 @@ Instead:
 
 - **Prefer `task import`** for anything scripted. Fields are explicit
   JSON, no shell splits or parses them, and a uuid you generate
-  identifies the task afterwards:
+  identifies the task afterwards. Build the JSON with `jq -n --arg`,
+  which escapes each value, rather than pasting strings into a template,
+  where a quote or backslash in a description breaks the JSON:
 
   ```bash
-  u=$(python3 -c 'import uuid; print(uuid.uuid4())')
-  printf '[{"uuid":"%s","description":"Write tests","project":"Work",
-    "tags":["code"],"priority":"H","status":"pending"}]' "$u" \
-    | task import -
+  u=$(uuidgen | tr A-Z a-z)
+  jq -n --arg u "$u" --arg desc "Write tests" \
+    '[{uuid:$u, description:$desc, project:"Work", tags:["code"],
+      priority:"H", status:"pending"}]' \
+    | task rc.confirmation=off import - </dev/null
   ```
 
 - Otherwise pass modifiers as **separate literal words**, or as a list
